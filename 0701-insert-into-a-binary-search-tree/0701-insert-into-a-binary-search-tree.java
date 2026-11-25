@@ -1,0 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        TreeNode newNode = new TreeNode(val);
+        if(root == null) return newNode;
+
+        TreeNode curr = root;
+
+        while(true) {
+            if(curr.val > val) {
+                if(curr.left == null) {
+                    curr.left = newNode;
+                    break;
+                }
+                curr = curr.left;
+            } else {
+                if(curr.right == null) {
+                    curr.right = newNode;
+                    break;
+                }
+                curr = curr.right;
+            }
+        }
+        return root;
+    }
+}
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
